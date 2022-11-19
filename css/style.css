@@ -1,0 +1,212 @@
+*{margin: 0px; padding: 0px;}
+body
+{
+    margin: 0px;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    font-size: 17px;
+}
+button
+{
+    background-color: #EE1D44;
+    border: none;
+    font-size: inherit;
+    box-shadow: 4px 4px 0.3em rgba(238, 29, 67, 0.39);
+}
+button:active
+{
+    background-color: rgb(221, 28, 63);
+    box-shadow: -4px -4px 0.3em rgba(238, 29, 67, 0.39);
+}
+ul{list-style: none;}
+footer
+{
+    background-color: #EE1D44;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+#footer_start
+{
+    border-right: 2px solid rgb(255, 165, 165);
+}
+footer > div
+{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+footer > div div
+{
+    padding: 0px;
+    margin: 9px;
+}
+footer > div div img
+{
+    vertical-align: middle;
+    margin-right: 7px;
+}
+a
+{
+    color: #fff;
+    text-decoration: none;
+}
+@media screen and (max-width: 600px) {
+    header
+    {
+        background-color: #EE1D44;
+        position: fixed;
+        width: 100%;
+    }
+    #bare_header
+    {
+        padding: 5px 15px;
+        display: flex;
+        align-items: center;
+    }
+    #bare_header > div
+    {
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+    #bare
+    {
+        justify-content: flex-end;
+    }
+    #jevlibrary
+    {
+        font-size: 25px;
+        font-family: "Bauhaus 93";
+    }
+    #hamburger
+    {
+        width: 30px;
+        height: 30px;
+    }
+    nav{display: none;}
+    nav ul li{padding: 10px;}
+    nav ul li:hover
+    {
+        background-color: #d3183a;
+    }
+    section
+    {
+        background-color: #ffffff;
+        margin: 0px;
+        padding-top: 59px;
+    }
+    .section_container
+    {
+        display: flex;
+        min-height: 183px;
+        overflow: hidden;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+    .image_container
+    {
+        background-color: #f8f8f8;
+        width: 204px;
+        min-height: 183px;
+        padding-left: 5px;
+        padding-right: 5px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .product_image
+    {
+        max-height: 163px;
+        width: 100%;
+    }
+    .product_info
+    {
+        width: 100%;
+        border: 1px solid #f8f8f8;
+        padding-left: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .div_du_bon
+    {
+        background-color: #20c96f1c;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-size: 14px;
+        justify-content: space-evenly;
+    }
+    .div_du_bon > div
+    {
+        background-color: rgba(67, 187, 157, 0.3);
+        border: 2px solid rgb(17, 158, 123);
+        word-break: break-word;
+        border-radius: 5px;
+        max-width: 300px;
+        align-self: center;
+        margin: 0px 7px;
+        padding: 5px;
+        font-size: 13px;
+    }
+
+    .div_du_bon > button
+    {
+        box-shadow: chartreuse;
+        word-break: break-word;
+        border-radius: 5px;
+        max-width: 300px;
+        align-self: center;
+        margin: 0px 7px;
+        padding: 5px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .finaliser_commande{background-color: rgba(255, 255, 0, 0.5);}
+    .finaliser_commande:hover{background-color: #ffe600;}
+    .item_product_info
+    {
+        padding: 4px;
+    }
+    .product_title
+    {
+        padding-top: 20px;
+        color: #0F1111;
+    }
+    .product_subtitle
+    {
+        font-size: 12px;
+    }
+    .price
+    {
+        padding-top: 25px;
+        font-weight: bold;
+    }
+    .fcfa
+    {
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .button_order_container
+    {
+        height: 100%;
+        align-self: stretch;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .button_order
+    {
+        color: #fff;
+        max-height: 30px;
+        padding: 5px;
+        margin-right: 20%;
+        align-self: center;
+        border: none;
+        border-radius: 3px;
+        font-size: 17px;
+        font-weight: bold;
+    }
+}
