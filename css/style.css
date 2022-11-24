@@ -9,15 +9,41 @@ button
 {
     background-color: #EE1D44;
     border: none;
-    font-size: inherit;
     box-shadow: 4px 4px 0.3em rgba(238, 29, 67, 0.39);
+    color: #fff;
+    max-height: 30px;
+    padding: 5px;
+    margin-right: 20%;
+    align-self: center;
+    border-radius: 3px;
+    font-size: 17px;
+    font-weight: bold;
 }
 button:active
 {
-    background-color: rgb(221, 28, 63);
     box-shadow: -4px -4px 0.3em rgba(238, 29, 67, 0.39);
+    background-color: rgb(221, 28, 63);
+    font-size: 16px;
 }
 ul{list-style: none;}
+#mon_panier
+{
+    width: 50%;
+    background-color: #ffe600;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 30px auto;
+    font-size: 15px;
+    font-weight: bold;
+}
+#mon_panier a
+{
+    color: #000;
+}
+#mon_panier:active
+{
+    font-size: 14px;
+}
 footer
 {
     background-color: #EE1D44;
@@ -62,7 +88,8 @@ a
     }
     #bare_header
     {
-        padding: 5px 15px;
+        height: 45px;
+        padding: 0px 15px;
         display: flex;
         align-items: center;
     }
@@ -70,21 +97,68 @@ a
     {
         width: 50%;
         display: flex;
-        align-items: center;
     }
     #bare
     {
         justify-content: flex-end;
+        align-items: center;
     }
     #jevlibrary
     {
-        font-size: 25px;
+        font-size: 20px;
         font-family: "Bauhaus 93";
     }
-    #hamburger
+    #hamburger, #caddie
     {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
+    }
+    #caddie:hover, #caddie ~ div:hover, #hamburger:hover{cursor: pointer;}
+    #hamburger{background-color: #d3183a;border-radius: 5px;}
+    #bare > div {display: flex;position: absolute;right: 40px;}
+    #caddie ~ div
+    {
+        background-color: #fff;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        position: relative;
+        right: 13px;
+        bottom: 5px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        color: #EE1D44;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    #caddie ~ div:active
+    {
+        font-size: small;
+        width: 21px;
+        height: 21px;
+    }
+    #mon_panier_header
+    {
+        background-color: #ffe600;
+        align-self: center;
+        font-size: 10px;
+        font-weight: bold;
+        color: black;
+        border-radius: 7px;
+        padding: 3px;
+    }
+    #mon_panier_header:active{font-size: 9px;}
+    #caddie:active
+    {
+        width: 35px;
+        height: 35px;
+    }
+    #hamburger:active
+    {
+        background-color: #EE1D44;
+        width: 33px;
+        height: 33px;
     }
     nav{display: none;}
     nav ul li{padding: 10px;}
@@ -96,8 +170,23 @@ a
     {
         background-color: #ffffff;
         margin: 0px;
-        padding-top: 59px;
+        padding-top: 45px;
     }
+    /*.numero_page
+    {
+        background-color: burlywood;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 50%;
+        min-height: 20px;
+        width: 20px;
+        color: #EE1D44;
+        font-weight: 700;
+        font-size: 18px;
+    }*/
     .section_container
     {
         display: flex;
@@ -152,21 +241,8 @@ a
         padding: 5px;
         font-size: 13px;
     }
-
-    .div_du_bon > button
-    {
-        box-shadow: chartreuse;
-        word-break: break-word;
-        border-radius: 5px;
-        max-width: 300px;
-        align-self: center;
-        margin: 0px 7px;
-        padding: 5px;
-        font-weight: bold;
-        color: #fff;
-    }
-    .finaliser_commande{background-color: rgba(255, 255, 0, 0.5);}
-    .finaliser_commande:hover{background-color: #ffe600;}
+    .finaliser_commande{background-color: #ffe600;}
+    .finaliser_commande:hover{background-color: rgba(255, 255, 0, 0.5);}
     .item_product_info
     {
         padding: 4px;
@@ -196,17 +272,5 @@ a
         align-self: stretch;
         display: flex;
         justify-content: flex-end;
-    }
-    .button_order
-    {
-        color: #fff;
-        max-height: 30px;
-        padding: 5px;
-        margin-right: 20%;
-        align-self: center;
-        border: none;
-        border-radius: 3px;
-        font-size: 17px;
-        font-weight: bold;
     }
 }

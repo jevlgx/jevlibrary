@@ -1,3 +1,6 @@
+<?php
+    require "header.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,13 @@
     <link rel="stylesheet" href="css/panier.css">
 </head>
 <body>
+
+    <pre>
+    <?php
+        print_r($_SESSION);
+    ?>
+    </pre>
+
     <!--UTILISER CE BLOCK POUR LE PANIER-->
     <div class ="section_container_bon">
         <div class = "image_container">
