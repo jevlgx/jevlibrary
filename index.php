@@ -1,72 +1,202 @@
-<?php
-    require "gestionCookiesCommande.php";
-?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
     <meta charset="UTF-8">
-    <title>JEV library : Acceuil</title>
-    <link rel = "stylesheet" href="css/style.css?<?php echo filemtime("js/main.js");?>">
-    <script src = "js/main.js?<?php echo filemtime("js/main.js");?>"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href="css/style.css?">
 </head>
-<body>
+<body id="body_blanc">
     <header>
-        <div id = "bare_header">
-            <div>
-                <a href="#home" id = "jevlibrary">JEV Library</a>
-            </div>
-            <div id = "bare">
-                <div>
-                    <a href = panier.php alt="" id = "mon_panier_header">mon panier</a>
-                    <svg id = "caddie" fill="#fff" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg>
-                    <div id = "nombre_produits_commande">
-                        <?php //afficher le nombre d'éléments dans le panier
-                            echo count($_COOKIE);
-                        ?></a>
-                    </div>
-                </div>
-                <svg onclick="afficher_nav()" id ="hamburger" fill="#fff" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>
-            </div>
-        </div>
-        <nav id = "hamburger_list">
-            <ul>
-                <li>
-                    <a href="#contact">vous avez une question ?</a><!--dans la page correspondante, dire comment se passe la livraison, qui contacter en cas de problème, prix de livraison et moyens de payement-->
-                </li>
-                <li>
-                    <a href="#contact">Contactez nous</a>
-                </li>
-                <li>
-                    <a href="#contact">About</a>
-                </li>
-            </ul>
-        </nav>
+        <?php
+                //SUPRESSION EFFECTIVE DU COOKIE
+            $etatCookie = "actif";
+            if(array_key_exists("suprimerCookie", $_GET)){
+                foreach ($_COOKIE as $nom => $valeur){
+                    setcookie("$nom", "", time() - 3600);
+                }
+                $etatCookie = "supprime";
+            }
+            require "header.php";
+        ?>
     </header>
 
-    <section>
-        <!--AFFICHE LES DIFFERENTS PRODUITS-->
+    <main>
         <?php
-            require "contenu.php";
+        //AFFICHAGE DU MESSAGE APRES SUPRESSION DES COOKIES
+            if(array_key_exists("suprimerCookie", $_GET)){
+                if ($_GET['suprimerCookie'] == "yes"){
+                    echo("<div id = 'panier_vide'>Vous avez retiré tous les articles présents dans votre panier</div>");
+                }
+                if ($_GET['suprimerCookie'] == "envoye"){
+                    echo("<div id = 'commande_enregistree'>Votre commande a été enregistrée</div>");
+                }
+            }
         ?>
-        <div id = "mon_panier">
-        <a href = "panier.php" alt="">Consulter mon panier</a>
+        <div id = "bloc_langues">
+            <div class = "langue">
+                <h2 class = "nom_langue">FRANCOPHONES</h2>
+                <h3 class = "titre_classe">Maternelle</h3>
+                <div class = "niveau">
+                    <a href = "classe.php?classe=maternelle1EreAnnee">
+                        <div class = "classe">
+                            <div>Maternelle 1ere année</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=maternelle2EmeAnnee">
+                        <div class = "classe">
+                            <div>Maternelle 2eme année</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                </div>
+                <h3 class = "titre_classe">Primaire</h3>
+                <div class = "niveau">
+                    <a href = "classe.php?classe=sil">
+                        <div class = "classe">
+                            <div>SIL</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=cp">
+                        <div class = "classe">
+                            <div>CP</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=ce1">
+                        <div class = "classe">
+                            <div>CE1</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=ce2">
+                        <div class = "classe">
+                            <div>CE2</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=cm1">
+                        <div class = "classe">
+                            <div>CM1</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=cm2">
+                        <div class = "classe">
+                            <div>CM2</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                </div>
+                <h3 class = "titre_classe">Secondaire</h3>
+                <div class = "niveau">
+                    <?php
+                        for($classe = 6; $classe > 2; $classe--){
+                            echo("
+                                <a href = 'classe.php?classe=".$classe."eme'>
+                                <div class = 'classe'>
+                                    <div> $classe <sup>ème</sup></div>
+                                    <div>&gt;</div>
+                                </div>
+                                </a>
+                            ");
+                        }
+                    ?>
+                    <a href = "classe.php?classe=seconde">
+                        <div class = 'classe'>
+                            <div>2<sup>nd</sup></div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=premiere">
+                        <div class = 'classe'>
+                            <div>1<sup>er</sup></div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=terminale">
+                        <div class = 'classe'>
+                            <div>T<sup>le</sup></div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class = "langue">
+                <h2 class = "nom_langue">ENGLISH-SPEAKER</h2>
+                <h3 class = "titre_classe">Nursery school</h3>
+                <div class = "niveau">
+                    <a href = "classe.php?classe=nursery1">
+                        <div class = 'classe'>
+                            <div>Nursery one</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = "classe.php?classe=nursery2">
+                        <div class = 'classe'>
+                            <div>Nursery two</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                </div>
+                <h3 class = "titre_classe">Primary school</h3>
+                <div class = "niveau">
+                    <?php
+                        for($classe = 1; $classe < 7; $classe++){
+                            echo("
+                                <a href = 'classe.php?classe=class$classe'>
+                                    <div class = 'classe'>
+                                        <div> Class $classe </div>
+                                        <div>&gt;</div>
+                                    </div>
+                                </a>
+                            ");
+                        }
+                    ?>
+                </div>
+                <h3 class = "titre_classe">Secondary education</h3>
+                <div class = "niveau">
+                    <a href = 'classe.php?classe=from1'>
+                        <div class = 'classe'>
+                            <div> From 1 and 1<sup>st</sup> year</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <a href = 'classe.php?classe=from2'>
+                        <div class = 'classe'>
+                            <div> From 2 and 2<sup>nd</sup> year</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                    <?php
+                        for($classe = 3; $classe < 6; $classe++){
+                            echo("
+                                <a href = 'classe.php?classe=from$classe'>
+                                    <div class = 'classe'>
+                                        <div> From $classe</div>
+                                        <div>&gt;</div>
+                                    </div>
+                                </a>
+                            ");
+                        }
+                    ?>
+                    <a href = 'classe.php?classe=lowerAndUpperSixth'>
+                        <div class = 'classe'>
+                            <div>Lower & Upper Sixth</div>
+                            <div>&gt;</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-        
-    </section>
+            <a href = "panier.php">Mon panier</a>
+            <a href = "test.php">Test</a>
+    </main>
 
     <footer>
-        <div id = "footer_start">
-            <div id = "contact">Contactez nous :</div>
-            <div><img src = "img/whatsapp.svg"></img>653219096</div>
-            <div><img src = "img/envelope-fill.svg"></img>myjevfamily@gmail.com</div>
-            <div><img src = "img/geo-alt-fill.svg"></img>Cameroun, Yaounde : Montée sni</div>
-        </div>
-        <div>
-            <div>Ce site utilise les cookies pour enregistrer vos commandes</div>
-            <div>Designed by jevlibrary</div>
-            <div id = "information">&copy <strong>jev library</strong> since 2020</div>
-        </div>
+        <?php require "footer.php";?>
     </footer>
 </body>
 </html>
